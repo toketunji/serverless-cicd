@@ -1,7 +1,5 @@
 service: serverless-sample
 
-# You can pin your service to only deploy with a specific Serverless version
-# Check out our docs for more details
 # frameworkVersion: "=X.X.X"
 
 provider:
@@ -10,7 +8,7 @@ provider:
   stage: dev
   region: eu-west-1
   environment:
-    USER_TABLE: ${self:service}-user
+    USER_TABLE: ${self:service}-user-${self:provider.stage}
 
   iamRoleStatements:
     - Effect: "Allow"
@@ -25,9 +23,11 @@ provider:
 package:
   individually: true
   include:
-    - node_modules/co
-    - node_modules/bluebird
-    - node_modules/chance
+    - node_modules/co/**
+    - node_modules/bluebird/**
+    - node_modules/chance/**
+  exclude:
+    - node_modules/**
 
 functions:
   registerUser:

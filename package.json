@@ -4,7 +4,7 @@
   "description": "A sample project demonstrating serverless testing and deployment",
   "main": "handler.js",
   "scripts": {
-    "test": "test"
+    "test": "BLUEBIRD_DEBUG=1 ./node_modules/.bin/mocha ./test/integration/*.js --reporter spec -t 600000"
   },
   "keywords": [
     "serverless",
@@ -21,6 +21,10 @@
   },
   "devDependencies": {
     "aws-sdk": "^2.28.0",
-    "serverless": "^1.9.0"
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "serverless": "^1.9.0",
+    "superagent": "^3.5.0",
+    "superagent-promise": "^1.1.0"
   }
 }

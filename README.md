@@ -11,6 +11,7 @@ common logging format
 Jenkins 2 cd pipeline
 serverless encrypted env vars
 accompanying docs
+exclude plugin?
 
 General serverless guidelines
 Keep package sizes as small as possible to minimize cold start times

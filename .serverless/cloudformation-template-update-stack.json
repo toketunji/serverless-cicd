@@ -121,7 +121,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/serverless-sample/dev/1489668442002-2017-03-16T12:47:22.002Z/serverless-sample-dev-registerUser.zip"
+          "S3Key": "serverless/serverless-sample/dev/1489679009184-2017-03-16T15:43:29.184Z/serverless-sample-dev-registerUser.zip"
         },
         "FunctionName": "serverless-sample-dev-registerUser",
         "Handler": "api/users/post.handle",
@@ -136,7 +136,7 @@
         "Timeout": 6,
         "Environment": {
           "Variables": {
-            "USER_TABLE": "serverless-sample-user"
+            "USER_TABLE": "serverless-sample-user-dev"
           }
         }
       },
@@ -144,14 +144,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "RegisterUserLambdaVersionG6Lx1DSwIxzVrIiojVVDxToesAJ6fIzCxkRcELMXpM": {
+    "RegisterUserLambdaVersionE9BLXZnP7yFBx0SH3E2qM9IqAygZgwQE7IEefRaCWaI": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "RegisterUserLambdaFunction"
         },
-        "CodeSha256": "G6Lx1DSwIxzVrIiojV/VDxToesAJ6fIzCxkRcELMXpM="
+        "CodeSha256": "E9BLXZnP7yFBx0SH3E2qM9IqAygZgwQE7IEefRaCWaI="
       }
     },
     "ApiGatewayRestApi": {
@@ -213,7 +213,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1489668442029": {
+    "ApiGatewayDeployment1489679009200": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -268,7 +268,7 @@
     "RegisterUserLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "RegisterUserLambdaVersionG6Lx1DSwIxzVrIiojVVDxToesAJ6fIzCxkRcELMXpM"
+        "Ref": "RegisterUserLambdaVersionE9BLXZnP7yFBx0SH3E2qM9IqAygZgwQE7IEefRaCWaI"
       }
     },
     "ServiceEndpoint": {

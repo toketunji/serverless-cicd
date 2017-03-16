@@ -13,7 +13,7 @@ const co           = require('co'),
 
 const userTable = process.env.USER_TABLE;
 
-exports.handle = (event, context, callback) => {
+module.exports.handle = (event, context, callback) => {
   co(function*(){
     log.debug('received event', event);
     return yield createUser(event, context);

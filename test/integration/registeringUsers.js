@@ -36,6 +36,18 @@ describe('Registering a valid user', () => {
     user.username.should.equal(request.username);
   });
 
+  it('should save the firstName', () => {
+    user.firstName.should.equal(request.firstName);
+  });
+
+  it('should save the lastName', () => {
+    user.lastName.should.equal(request.lastName);
+  });
+
+  it('should save the gender', () => {
+    user.gender.should.equal(request.gender);
+  });
+
   after(co.wrap(function* () {
     yield then.the_user_is_deleted(result.id);
   }));

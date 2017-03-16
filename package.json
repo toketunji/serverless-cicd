@@ -4,7 +4,8 @@
   "description": "A sample project demonstrating serverless testing and deployment",
   "main": "handler.js",
   "scripts": {
-    "test": "BLUEBIRD_DEBUG=1 ./node_modules/.bin/mocha ./test/integration/*.js --reporter spec -t 600000"
+    "test-remote": "BLUEBIRD_DEBUG=1 ./node_modules/.bin/mocha ./test/integration/*.js --reporter spec -t 600000",
+    "test-local": "TARGET=local BLUEBIRD_DEBUG=1 ./node_modules/.bin/mocha ./test/integration/*.js --reporter spec -t 600000"
   },
   "keywords": [
     "serverless",

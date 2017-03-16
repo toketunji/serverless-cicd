@@ -11,30 +11,32 @@ const userTable = process.env.USER_TABLE;
 function* the_user_exists(id) {
   let params = {
     TableName: userTable,
-    KeyConditionExpression: 'id = :id',
+    Key: {
+      id: id
+    },
     ConsistentRead: true,
-    ExpressionAttributeValues: {
-      ':id': id,
-    }
   };
 
-  let result = yield dynamo.queryAsync(params);
+  let result = yield dynamo.getAsync(params);
 
-  if (result.Items.length === 0) {
-    return null;
-  }
-  return result.Items[0];
+  return result.Item;
 }
 
 function* the_user_is_deleted(id) {
   let params = {
     TableName : userTable,
     Key: {
-      HashKey: id,
+      id: id,
     }
   };
 
-  yield dynamo.deleteAsync(params);
+  try {
+    yield dynamo.deleteAsync(params);
+  } catch (e) {
+    if(e.code !== 'ResourceNotFoundException') {
+      throw e;
+    }
+  }
 }
 
 module.exports = {

@@ -121,7 +121,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/serverless-sample/dev/1489679009184-2017-03-16T15:43:29.184Z/serverless-sample-dev-registerUser.zip"
+          "S3Key": "serverless/serverless-sample/dev/1489683304129-2017-03-16T16:55:04.129Z/serverless-sample-dev-registerUser.zip"
         },
         "FunctionName": "serverless-sample-dev-registerUser",
         "Handler": "api/users/post.handle",
@@ -144,14 +144,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "RegisterUserLambdaVersionE9BLXZnP7yFBx0SH3E2qM9IqAygZgwQE7IEefRaCWaI": {
+    "RegisterUserLambdaVersionyWGUvUmAykBwnzJry5Kl82RDC8wxjnD3biyioPxo": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "RegisterUserLambdaFunction"
         },
-        "CodeSha256": "E9BLXZnP7yFBx0SH3E2qM9IqAygZgwQE7IEefRaCWaI="
+        "CodeSha256": "yWGUvUm+AykBwnzJry/5Kl/82RDC8wxjnD3biyioPxo="
       }
     },
     "ApiGatewayRestApi": {
@@ -213,7 +213,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1489679009200": {
+    "ApiGatewayDeployment1489683304142": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -257,6 +257,28 @@
           ]
         }
       }
+    },
+    "userTable": {
+      "Type": "AWS::DynamoDB::Table",
+      "Properties": {
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "id",
+            "AttributeType": "S"
+          }
+        ],
+        "KeySchema": [
+          {
+            "AttributeName": "id",
+            "KeyType": "HASH"
+          }
+        ],
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": "1",
+          "WriteCapacityUnits": "1"
+        },
+        "TableName": "serverless-sample-user-dev"
+      }
     }
   },
   "Outputs": {
@@ -268,7 +290,7 @@
     "RegisterUserLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "RegisterUserLambdaVersionE9BLXZnP7yFBx0SH3E2qM9IqAygZgwQE7IEefRaCWaI"
+        "Ref": "RegisterUserLambdaVersionyWGUvUmAykBwnzJry5Kl82RDC8wxjnD3biyioPxo"
       }
     },
     "ServiceEndpoint": {

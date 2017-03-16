@@ -32,12 +32,12 @@ describe('Registering a valid user', () => {
     should.exist(user);
   });
 
-  it('should save the users details', () => {
-    user.should.deep.equal(request);
+  it('should save the username', () => {
+    user.username.should.equal(request.username);
   });
 
   after(co.wrap(function* () {
-    yield then.the_user_is_deleted();
+    yield then.the_user_is_deleted(result.id);
   }));
 });
 

@@ -1,0 +1,23 @@
+{
+  "name": "serverless-sample",
+  "version": "1.0.0",
+  "description": "A sample project demonstrating serverless testing and deployment",
+  "main": "handler.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "serverless",
+    "testing",
+    "ci",
+    "cd"
+  ],
+  "author": "imran parkar",
+  "license": "ISC",
+  "dependencies": {
+    "co": "^4.6.0"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.28.0"
+  }
+}

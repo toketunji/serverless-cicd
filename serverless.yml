@@ -14,12 +14,11 @@ provider:
   iamRoleStatements:
     - Effect: "Allow"
       Action:
-        - "dynamo:PutItem"
-        - "dynamo:GetItem"
+        - "dynamodb:*"
       Resource:
         Fn::Join:
           - ""
-          - - "arn:aws:dynamo:::"
+          - - "*"
 
 package:
   individually: true

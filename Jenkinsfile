@@ -16,7 +16,7 @@ pipeline {
             steps { 
                 sh 'AWS_REGION=eu-west-1 AWS_STAGE=dev'
                 sh 'npm i'
-                sh 'npm run deploy -- -s dev'
+                sh 'npm run deploy -- dev'
                 sh 'npm run integration'
             }
         }
@@ -31,7 +31,7 @@ pipeline {
         stage('Prod'){
             steps {
                 sh 'AWS_REGION=eu-west-1 AWS_STAGE=prod'
-                sh 'npm run deploy -- -s prod'
+                sh 'npm run deploy -- prod'
             }
         }
     }

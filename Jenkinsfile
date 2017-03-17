@@ -1,11 +1,9 @@
 #!groovy
 
 pipeline {
-    node {
-        currentBuild.displayName = env.BRANCH_NAME
-    }
     agent any
     tools {
+        //This can be removed if you dont use the node plugin for jenkins
         nodejs 'Node 4.3.2'
     }
     environment { 
@@ -15,10 +13,11 @@ pipeline {
     stages {
         stage('Unit Test'){
             steps {
+                sh 'npm i'
                 sh 'npm run unit'
             }
         }
-        stage('Dev') { 
+        stage('Dev (Deploy & Test)') { 
             environment { 
                 AWS_STAGE = 'dev'
             }
@@ -28,7 +27,7 @@ pipeline {
                 sh 'npm run integration'
             }
         }
-        stage('Test') {
+        stage('Test (Deploy & Test)') {
             environment { 
                 AWS_STAGE = 'test'
             }
@@ -38,7 +37,7 @@ pipeline {
                 sh 'npm run integration'
             }
         }
-        stage('Prod'){
+        stage('Prod (Deploy)'){
             environment { 
                 AWS_STAGE = 'prod'
             }
@@ -46,6 +45,7 @@ pipeline {
                 branch 'master' 
             }
             steps {
+                sh 'echo deploying to prod'
                 sh './node_modules/.bin/sls deploy -s prod'
             }
         }

@@ -17,11 +17,30 @@
       "cwd": "${workspaceRoot}/test/integration",
       "runtimeArgs": [],
       "env": {
-        "SERVERLESS_STAGE": "dev",
-        "SERVERLESS_REGION": "eu-west-1",
+        "AWS_STAGE": "dev",
+        "AWS_REGION": "eu-west-1",
         "BLUEBIRD_DEBUG": "1",
         "TARGET": "local"
       }
+    },
+    {
+      "name": "Test Remote Dev",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
+      "args": [
+        "*.js",
+        "-t",
+        "600000"
+      ],
+      "cwd": "${workspaceRoot}/test/integration",
+      "runtimeArgs": [],
+      "env": {
+        "AWS_STAGE": "dev",
+        "AWS_REGION": "eu-west-1",
+        "BLUEBIRD_DEBUG": "1"
+      },
+      
     }
   ]
 }

@@ -34,3 +34,4 @@ node_modules
 
 #Ignore _meta folder
 _meta/resources
+.serverless

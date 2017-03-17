@@ -11,9 +11,13 @@ pipeline {
     }
 
     stages {
-        stage('Unit Test'){
+        stage('Build'){
             steps {
                 sh 'npm i'
+            }            
+        }
+        stage('Unit Test'){
+            steps {
                 sh 'npm run unit'
             }
         }
@@ -22,7 +26,6 @@ pipeline {
                 AWS_STAGE = 'dev'
             }
             steps { 
-                sh 'npm i'
                 sh './node_modules/.bin/sls deploy -s dev'
                 sh 'npm run integration'
             }
@@ -32,7 +35,6 @@ pipeline {
                 AWS_STAGE = 'test'
             }
             steps { 
-                sh 'npm i'
                 sh './node_modules/.bin/sls deploy -s test'
                 sh 'npm run integration'
             }
@@ -46,7 +48,6 @@ pipeline {
             }
             steps {
                 sh 'echo deploying to prod'
-                sh 'npm i'
                 sh './node_modules/.bin/sls deploy -s prod'
             }
         }

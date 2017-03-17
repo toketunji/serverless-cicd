@@ -46,6 +46,7 @@ pipeline {
             }
             steps {
                 sh 'echo deploying to prod'
+                sh 'npm i'
                 sh './node_modules/.bin/sls deploy -s prod'
             }
         }

@@ -13,6 +13,7 @@ pipeline {
     stages {
         stage('Unit Test'){
             steps {
+                sh 'npm i'
                 sh 'npm run unit'
             }
         }

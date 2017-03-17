@@ -1,3 +1,5 @@
+'use strict';
+
 function init(){
   require('aws-sdk').config.region = process.env.AWS_REGION;
   process.env.USER_TABLE = `serverless-sample-user-${process.env.AWS_STAGE}`;

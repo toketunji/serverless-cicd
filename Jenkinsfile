@@ -4,9 +4,9 @@ pipeline {
     agent any 
 
     stages {
-        stage('Build') { 
+        stage('Deploy') { 
             steps { 
-                sh 'echo hello' 
+                sh 'npm run deploy-dev' 
             }
         }
         stage('Test'){
@@ -14,7 +14,7 @@ pipeline {
                 sh 'echo hello'               
             }
         }
-        stage('Deploy') {
+        stage('Stuff') {
             steps {
                 sh 'echo hello'               
             }

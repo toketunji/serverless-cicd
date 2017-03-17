@@ -23,19 +23,19 @@ pipeline {
                 sh 'npm run integration'
             }
         }
-        stage('Test') { 
-            steps { 
-                sh 'AWS_REGION=eu-west-1 AWS_STAGE=test'
-                sh 'npm i'
-                sh 'npm run deploy -- test'
-                sh 'npm run integration'
-            }
-        }
-        stage('Prod'){
-            steps {
-                sh 'AWS_REGION=eu-west-1 AWS_STAGE=prod'
-                sh 'npm run deploy -- prod'
-            }
-        }
+        // stage('Test') { 
+        //     steps { 
+        //         sh 'AWS_REGION=eu-west-1 AWS_STAGE=test'
+        //         sh 'npm i'
+        //         sh 'npm run deploy -- test'
+        //         sh 'npm run integration'
+        //     }
+        // }
+        // stage('Prod'){
+        //     steps {
+        //         sh 'AWS_REGION=eu-west-1 AWS_STAGE=prod'
+        //         sh 'npm run deploy -- prod'
+        //     }
+        // }
     }
 }

@@ -15,7 +15,6 @@ pipeline {
         stage('Dev') { 
             steps { 
                 environment { 
-                  AWS_REGION = 'eu-west-1'
                   AWS_STAGE = 'dev'
                 }
                 sh 'npm i'

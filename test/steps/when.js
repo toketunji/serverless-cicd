@@ -8,10 +8,12 @@ const Promise = require('bluebird'),
 const url = `${process.env.URL}/users`;
 
 function* a_user_is_registered(userDetails) {
-  if(process.env.TARGET === 'local') {
-    let res = yield invoke(userDetails, handler);
-    return res.body;
+  if (process.env.TARGET === 'local') {
+    let res = yield invoke({ body: JSON.stringify(userDetails) }, handler);
+    return res.body ? JSON.parse(res.body) : null;
   }
+
+  console.log(url);
 
   let res = yield http
     .post(url, userDetails);

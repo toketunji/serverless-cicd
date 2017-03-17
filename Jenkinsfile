@@ -13,14 +13,9 @@ pipeline {
                 sh 'npm run deploy-dev' 
             }
         }
-        stage('Test'){
+        stage('Integration Test'){
             steps {
-                sh 'echo hello'               
-            }
-        }
-        stage('Stuff') {
-            steps {
-                sh 'echo hello'               
+                sh 'npm run integration-test-dev'               
             }
         }
     }

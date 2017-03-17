@@ -6,7 +6,8 @@
   "scripts": {
     "deploy-dev": "./node_modules/.bin/sls deploy -s dev",
     "integration-dev": "AWS_REGION=eu-west-1 AWS_STAGE=dev BLUEBIRD_DEBUG=1 ./node_modules/.bin/mocha ./test/integration/*.js --reporter spec -t 600000",
-    "integration-dev-local": "TARGET=local AWS_REGION=eu-west-1 AWS_STAGE=dev BLUEBIRD_DEBUG=1 ./node_modules/.bin/mocha ./test/integration/*.js --reporter spec -t 600000"
+    "integration-dev-local": "TARGET=local AWS_REGION=eu-west-1 AWS_STAGE=dev BLUEBIRD_DEBUG=1 ./node_modules/.bin/mocha ./test/integration/*.js --reporter spec -t 600000",
+    "unit": "BLUEBIRD_DEBUG=1 ./node_modules/.bin/mocha ./test/unit/*.js --reporter spec -t 600000"
   },
   "keywords": [
     "serverless",

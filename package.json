@@ -1,5 +1,5 @@
 {
-  "name": "serverless-sample",
+  "name": "serverless-cicd",
   "version": "1.0.0",
   "description": "A sample project demonstrating serverless testing and deployment",
   "main": "handler.js",

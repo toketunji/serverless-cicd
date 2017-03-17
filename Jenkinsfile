@@ -1,9 +1,6 @@
 #!groovy
 
 pipeline {
-    node {
-        currentBuild.displayName = env.BRANCH_NAME
-    }
     agent any
     tools {
         nodejs 'Node 4.3.2'

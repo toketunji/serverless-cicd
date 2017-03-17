@@ -5,6 +5,9 @@ pipeline {
     tools {
         nodejs 'Node 4.3.2'
     }
+    environment { 
+        AWS_REGION = 'eu-west-1'
+    }
 
     stages {
         stage('Unit Test'){
@@ -14,8 +17,7 @@ pipeline {
         }
         stage('Dev') { 
             environment { 
-              AWS_REGION = 'eu-west-1'
-              AWS_STAGE = 'dev'
+                AWS_STAGE = 'dev'
             }
             steps { 
                 sh 'npm i'
@@ -23,19 +25,24 @@ pipeline {
                 sh 'npm run integration'
             }
         }
-        // stage('Test') { 
-        //     steps { 
-        //         sh 'AWS_REGION=eu-west-1 AWS_STAGE=test'
-        //         sh 'npm i'
-        //         sh 'npm run deploy -- test'
-        //         sh 'npm run integration'
-        //     }
-        // }
-        // stage('Prod'){
-        //     steps {
-        //         sh 'AWS_REGION=eu-west-1 AWS_STAGE=prod'
-        //         sh 'npm run deploy -- prod'
-        //     }
-        // }
+        stage('Test') {
+            environment { 
+                AWS_STAGE = 'test'
+            }
+            steps { 
+                sh 'npm i'
+                sh 'npm run deploy -- test'
+                sh 'npm run integration'
+            }
+        }
+        stage('Prod'){
+            environment { 
+                AWS_STAGE = 'prod'
+            }
+            steps {
+                sh 'AWS_REGION=eu-west-1 AWS_STAGE=prod'
+                sh 'npm run deploy -- prod'
+            }
+        }
     }
 }

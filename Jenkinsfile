@@ -17,7 +17,7 @@ pipeline {
                 sh 'npm run unit'
             }
         }
-        stage('Dev') { 
+        stage('Dev (Deploy & Test)') { 
             environment { 
                 AWS_STAGE = 'dev'
             }
@@ -27,7 +27,7 @@ pipeline {
                 sh 'npm run integration'
             }
         }
-        stage('Test') {
+        stage('Test (Deploy & Test)') {
             environment { 
                 AWS_STAGE = 'test'
             }
@@ -37,7 +37,7 @@ pipeline {
                 sh 'npm run integration'
             }
         }
-        stage('Prod'){
+        stage('Prod (Deploy)'){
             environment { 
                 AWS_STAGE = 'prod'
             }

@@ -8,7 +8,7 @@
     "RegisterUserLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/serverless-sample-prod-registerUser"
+        "LogGroupName": "/aws/lambda/serverless-cicd-test-registerUser"
       }
     },
     "IamRoleLambdaExecution": {
@@ -36,8 +36,8 @@
               "Fn::Join": [
                 "-",
                 [
-                  "prod",
-                  "serverless-sample",
+                  "test",
+                  "serverless-cicd",
                   "lambda"
                 ]
               ]
@@ -104,8 +104,8 @@
           "Fn::Join": [
             "-",
             [
-              "serverless-sample",
-              "prod",
+              "serverless-cicd",
+              "test",
               "eu-west-1",
               "lambdaRole"
             ]
@@ -120,9 +120,9 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/serverless-sample/prod/1489764188645-2017-03-17T15:23:08.645Z/serverless-sample-prod-registerUser.zip"
+          "S3Key": "serverless/serverless-cicd/test/1489774095136-2017-03-17T18:08:15.136Z/serverless-cicd-test-registerUser.zip"
         },
-        "FunctionName": "serverless-sample-prod-registerUser",
+        "FunctionName": "serverless-cicd-test-registerUser",
         "Handler": "api/users/post.handle",
         "MemorySize": 512,
         "Role": {
@@ -135,8 +135,8 @@
         "Timeout": 6,
         "Environment": {
           "Variables": {
-            "USER_TABLE": "serverless-sample-user-prod",
-            "AWS_STAGE": "prod"
+            "USER_TABLE": "serverless-cicd-user-test",
+            "AWS_STAGE": "test"
           }
         }
       },
@@ -144,20 +144,20 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "RegisterUserLambdaVersiondJVV4PJh6L25JgKXGpfdlOVxfZ3XnIi85AmShGpzA": {
+    "RegisterUserLambdaVersionh2BXPDOeoKGSTGUD0wt40jyBgfsuQ8yovS1TuUFE": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "RegisterUserLambdaFunction"
         },
-        "CodeSha256": "dJVV4PJh6L2+5JgKXGpfdlOVxfZ3/XnIi85AmShGpzA="
+        "CodeSha256": "h2BXPDOe+oKGSTGUD/0wt40+jyBgfsuQ8yovS1TuUFE="
       }
     },
     "ApiGatewayRestApi": {
       "Type": "AWS::ApiGateway::RestApi",
       "Properties": {
-        "Name": "prod-serverless-sample"
+        "Name": "test-serverless-cicd"
       }
     },
     "ApiGatewayResourceUsers": {
@@ -213,13 +213,13 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1489764188657": {
+    "ApiGatewayDeployment1489774095152": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         },
-        "StageName": "prod"
+        "StageName": "test"
       },
       "DependsOn": [
         "ApiGatewayMethodUsersPost"
@@ -277,7 +277,7 @@
           "ReadCapacityUnits": "1",
           "WriteCapacityUnits": "1"
         },
-        "TableName": "serverless-sample-user-prod"
+        "TableName": "serverless-cicd-user-test"
       }
     }
   },
@@ -290,7 +290,7 @@
     "RegisterUserLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "RegisterUserLambdaVersiondJVV4PJh6L25JgKXGpfdlOVxfZ3XnIi85AmShGpzA"
+        "Ref": "RegisterUserLambdaVersionh2BXPDOeoKGSTGUD0wt40jyBgfsuQ8yovS1TuUFE"
       }
     },
     "ServiceEndpoint": {
@@ -303,7 +303,7 @@
             {
               "Ref": "ApiGatewayRestApi"
             },
-            ".execute-api.eu-west-1.amazonaws.com/prod"
+            ".execute-api.eu-west-1.amazonaws.com/test"
           ]
         ]
       }

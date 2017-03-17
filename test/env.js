@@ -9,7 +9,7 @@ function init(){
   if(stage === 'dev') {
     process.env.URL = `https://tl0orf5x0a.execute-api.eu-west-1.amazonaws.com/dev`;
   } else if (stage == 'test') {
-    process.env.URL = `https://ne2uod40r5.execute-api.eu-west-1.amazonaws.com/test`;    
+    process.env.URL = `https://8qny1nnpe4.execute-api.eu-west-1.amazonaws.com/test`;    
   } else {
     throw new Error(`Stage is not configured for testing: ${stage}`);
   }

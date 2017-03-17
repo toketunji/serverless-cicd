@@ -21,7 +21,7 @@ pipeline {
             }
             steps { 
                 sh 'npm i'
-                sh 'npm run deploy -- dev'
+                sh './node_modules/.bin/sls deploy -s dev'
                 sh 'npm run integration'
             }
         }
@@ -31,7 +31,7 @@ pipeline {
             }
             steps { 
                 sh 'npm i'
-                sh 'npm run deploy -- test'
+                sh './node_modules/.bin/sls deploy -s test'
                 sh 'npm run integration'
             }
         }
@@ -40,8 +40,7 @@ pipeline {
                 AWS_STAGE = 'prod'
             }
             steps {
-                sh 'AWS_REGION=eu-west-1 AWS_STAGE=prod'
-                sh 'npm run deploy -- prod'
+                sh './node_modules/.bin/sls deploy -s prod'
             }
         }
     }

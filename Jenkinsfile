@@ -1,7 +1,10 @@
 #!groovy
 
 pipeline {
-    agent any 
+    agent any
+    tools {
+        nodejs 'Node 4.3.2'
+    }
 
     stages {
         stage('Deploy') { 

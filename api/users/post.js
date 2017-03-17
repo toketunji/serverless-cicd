@@ -18,7 +18,6 @@ module.exports.handle = (event, context, callback) => {
     callback(null, new HttpResponse(200, result));
   }).catch(e => {
     console.error('Error', e);
-    //todo map specific errors
     callback(null, new HttpResponse(500, 'Oops!'));
   });
 };

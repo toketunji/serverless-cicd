@@ -2,7 +2,6 @@
 
 const chance = new require('chance')();
 
-//todo tests for errors
 module.exports = class User {
   constructor(username, firstName, lastName, gender) {
     this.id = chance.guid();

@@ -3,6 +3,7 @@
 pipeline {
     agent any
     tools {
+        //This can be removed if you dont use the node plugin for jenkins
         nodejs 'Node 4.3.2'
     }
     environment { 

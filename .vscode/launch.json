@@ -39,8 +39,7 @@
         "AWS_STAGE": "dev",
         "AWS_REGION": "eu-west-1",
         "BLUEBIRD_DEBUG": "1"
-      },
-      
+      }
     }
   ]
 }

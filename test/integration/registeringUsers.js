@@ -52,10 +52,3 @@ describe('Registering a valid user', () => {
     yield then.the_user_is_deleted(result.id);
   }));
 });
-
-
-
-//Registering a user without a username
-//Registering a user with an invalid gender
-//todo for loop pattern for the above
-//todo wait pattern? do it for kinesis test

@@ -12,15 +12,30 @@ pipeline {
                 sh 'npm run unit'               
             }
         }
-        stage('Deploy') { 
+        stage('Deploy DEV') { 
             steps { 
+                sh 'AWS_REGION=eu-west-1 AWS_STAGE=dev'
                 sh 'npm i'
-                sh 'npm run deploy-dev' 
+                sh 'npm run deploy -- -s dev' 
             }
         }
-        stage('Integration Test'){
+        stage('Integration Test DEV'){
             steps {
-                sh 'npm run integration-dev'               
+                sh 'AWS_REGION=eu-west-1 AWS_STAGE=dev'
+                sh 'npm run integration'               
+            }
+        }
+        stage('Deploy TEST') { 
+            steps { 
+                sh 'AWS_REGION=eu-west-1 AWS_STAGE=test'
+                sh 'npm i'
+                sh 'npm run deploy -- -s dev' 
+            }
+        }
+        stage('Integration Test DEV'){
+            steps {
+                sh 'AWS_REGION=eu-west-1 AWS_STAGE=test'
+                sh 'npm run integration'               
             }
         }
     }

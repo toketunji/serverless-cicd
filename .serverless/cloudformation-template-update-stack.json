@@ -8,7 +8,7 @@
     "RegisterUserLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/serverless-sample-dev-registerUser"
+        "LogGroupName": "/aws/lambda/serverless-sample-test-registerUser"
       }
     },
     "IamRoleLambdaExecution": {
@@ -36,7 +36,7 @@
               "Fn::Join": [
                 "-",
                 [
-                  "dev",
+                  "test",
                   "serverless-sample",
                   "lambda"
                 ]
@@ -105,7 +105,7 @@
             "-",
             [
               "serverless-sample",
-              "dev",
+              "test",
               "eu-west-1",
               "lambdaRole"
             ]
@@ -120,9 +120,9 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/serverless-sample/dev/1489757963935-2017-03-17T13:39:23.935Z/serverless-sample-dev-registerUser.zip"
+          "S3Key": "serverless/serverless-sample/test/1489763542325-2017-03-17T15:12:22.325Z/serverless-sample-test-registerUser.zip"
         },
-        "FunctionName": "serverless-sample-dev-registerUser",
+        "FunctionName": "serverless-sample-test-registerUser",
         "Handler": "api/users/post.handle",
         "MemorySize": 512,
         "Role": {
@@ -135,7 +135,8 @@
         "Timeout": 6,
         "Environment": {
           "Variables": {
-            "USER_TABLE": "serverless-sample-user-dev"
+            "USER_TABLE": "serverless-sample-user-test",
+            "AWS_STAGE": "test"
           }
         }
       },
@@ -143,20 +144,20 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "RegisterUserLambdaVersionSxI4M59tASD0i2dKwyqzTMjT4V8Q5tNq2jEP8khU": {
+    "RegisterUserLambdaVersionkrjux8o0ZQk27g4CgkUIL7Y2ard1hCo1vFQvyqLEQ": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "RegisterUserLambdaFunction"
         },
-        "CodeSha256": "+Sx+I4M59tASD0i2dK/wyqzTMjT4V8Q5tNq2jEP8khU="
+        "CodeSha256": "krju/x8o0ZQk27g4CgkUIL7Y2ar/d1hCo1vFQvyqLEQ="
       }
     },
     "ApiGatewayRestApi": {
       "Type": "AWS::ApiGateway::RestApi",
       "Properties": {
-        "Name": "dev-serverless-sample"
+        "Name": "test-serverless-sample"
       }
     },
     "ApiGatewayResourceUsers": {
@@ -212,13 +213,13 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1489757963947": {
+    "ApiGatewayDeployment1489763542337": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         },
-        "StageName": "dev"
+        "StageName": "test"
       },
       "DependsOn": [
         "ApiGatewayMethodUsersPost"
@@ -276,7 +277,7 @@
           "ReadCapacityUnits": "1",
           "WriteCapacityUnits": "1"
         },
-        "TableName": "serverless-sample-user-dev"
+        "TableName": "serverless-sample-user-test"
       }
     }
   },
@@ -289,7 +290,7 @@
     "RegisterUserLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "RegisterUserLambdaVersionSxI4M59tASD0i2dKwyqzTMjT4V8Q5tNq2jEP8khU"
+        "Ref": "RegisterUserLambdaVersionkrjux8o0ZQk27g4CgkUIL7Y2ard1hCo1vFQvyqLEQ"
       }
     },
     "ServiceEndpoint": {
@@ -302,7 +303,7 @@
             {
               "Ref": "ApiGatewayRestApi"
             },
-            ".execute-api.eu-west-1.amazonaws.com/dev"
+            ".execute-api.eu-west-1.amazonaws.com/test"
           ]
         ]
       }

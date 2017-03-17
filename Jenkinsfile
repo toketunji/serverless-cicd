@@ -8,6 +8,7 @@ pipeline {
     environment { 
         AWS_REGION = 'eu-west-1'
     }
+    currentBuild.displayName = env.BRANCH_NAME
 
     stages {
         stage('Unit Test'){

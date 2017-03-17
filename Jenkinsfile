@@ -13,10 +13,11 @@ pipeline {
             }
         }
         stage('Dev') { 
+            environment { 
+              AWS_REGION = 'eu-west-1'
+              AWS_STAGE = 'dev'
+            }
             steps { 
-                environment { 
-                  AWS_STAGE = 'dev'
-                }
                 sh 'npm i'
                 sh 'npm run deploy -- dev'
                 sh 'npm run integration'

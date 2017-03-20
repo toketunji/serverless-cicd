@@ -34,5 +34,4 @@ Jenkinsfile at the root defines a multi stage pipeline for this project. The `ma
 
 ## todo
 * An example of a kinesis handler with integration tests
-* Find out why the jenkins multibranch pipeline build plugin doesn't create a seperate job for each branch
 * Find out if there is a way to remove steps that arent executed from jenkins gui for a given branch

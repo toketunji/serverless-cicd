@@ -4,23 +4,17 @@ node {
     }
 
         stage('Build'){
-            steps {
-                sh 'usr/local/bin/npm install'
-            }            
+                sh 'usr/local/bin/npm install'          
         }
         stage('Unit Test'){
-            steps {
                 sh 'npm run unit'
-            }
         }
         stage('Dev (Deploy & Test)') { 
             environment { 
                 AWS_STAGE = 'dev'
             }
-            steps { 
                 sh './node_modules/.bin/sls deploy -s dev'
                 sh 'npm run integration'
-            }
         }
         stage('Test (Deploy & Test)') {
             environment { 

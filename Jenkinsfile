@@ -1,12 +1,8 @@
-    //tools {
-        //This can be removed if you dont use the node plugin for jenkins
-       // nodejs 'Node 4.3.2'
-    //}
+node {
     environment { 
         AWS_REGION = 'eu-west-1'
     }
 
-    stages {
         stage('Build'){
             steps {
                 sh 'usr/local/bin/npm install'
@@ -47,4 +43,4 @@
                 sh './node_modules/.bin/sls deploy -s prod'
             }
         }
-    }
+}

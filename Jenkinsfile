@@ -5,7 +5,6 @@ pipeline {
     environment { 
         AWS_REGION = 'eu-west-1'
     }
-    export PATH="/usr/local/bin:${PATH}"
     stages {
         stage('Build'){
             steps {

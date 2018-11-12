@@ -6,7 +6,7 @@ pipeline {
         AWS_REGION = 'eu-west-1'
     }
     stages {
-        dir('getDetect Pipeline')
+        dir(getDetect Pipeline)
         stage('Build'){
             steps {
                 sh 'export PATH="$PATH:/usr/local/lib/node_modules"'

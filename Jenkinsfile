@@ -2,9 +2,9 @@ node {
     environment { 
         AWS_REGION = 'eu-west-1'
     }
-
+     env.WSPACE = pwd()   
         stage('Build'){
-                sh 'usr/local/bin/npm install'          
+                sh 'npm i'          
         }
         stage('Unit Test'){
                 sh 'npm run unit'

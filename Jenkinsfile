@@ -9,7 +9,7 @@ pipeline {
         stage('Build'){
             steps {
                 sh 'export PATH="$PATH:/usr/local/lib/node_modules"'
-                sh '/usr/local/lib/node_modules/npm install'
+                sh '/usr/local/bin/npm install'
             }            
         }
         stage('Unit Test'){

@@ -9,7 +9,7 @@ pipeline {
         stage('Build'){
             steps {
                 sh 'export PATH="$PATH:/usr/local/lib/node_modules"'
-                sh 'echo "my name is Temi"'
+                sh 'npm install'
             }            
         }
         stage('Unit Test'){

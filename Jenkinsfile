@@ -6,7 +6,6 @@ pipeline {
         //This can be removed if you dont use the node plugin for jenkins
         nodejs 'nodes'
     }
-    agent any
     environment { 
         AWS_REGION = 'eu-west-1'
     }

@@ -4,7 +4,7 @@ pipeline {
     agent any
     tools {
         //This can be removed if you dont use the node plugin for jenkins
-        nodejs 'NodeJS 8.1.2'
+        nodejs 'nodes'
     }
     agent any
     environment { 

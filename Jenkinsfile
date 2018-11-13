@@ -1,5 +1,9 @@
 #!groovy
 
+env.NODEJS_HOME = "${tool node7}"
+env.PATH="${env.NODEJS_HOME}:${env.PATH}"
+echo ${env.PATH}
+
 pipeline {
     agent any
     environment { 

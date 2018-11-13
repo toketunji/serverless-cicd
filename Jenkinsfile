@@ -1,5 +1,10 @@
 #!groovy
 
+   tools {
+       // I hoped it would work with this command...
+       nodejs 'nodejs6'
+   }
+
 env.NODEJS_HOME = "${tool node7}"
 env.PATH="${env.NODEJS_HOME}:${env.PATH}"
 echo ${env.PATH}

@@ -26,7 +26,7 @@ pipeline {
             }
             steps { 
                 sh './node_modules/.bin/sls deploy -s dev'
-                sh 'npm run integration'
+              \\  sh 'npm run integration'
             }
         }
         stage('Test (Deploy & Test)') {
@@ -35,7 +35,7 @@ pipeline {
             }
             steps { 
                 sh './node_modules/.bin/sls deploy -s test'
-                sh 'npm run integration'
+          \\      sh 'npm run integration'
             }
         }
         stage('Prod (Deploy)'){
